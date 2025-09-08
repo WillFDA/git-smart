@@ -1,0 +1,43 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.2.0
+
+jobs:
+  build_and_test:
+    docker:
+      - image: cimg/node:20.12.2
+    steps:
+      - checkout
+      - run:
+          name: Install pnpm
+          command: |
+            corepack enable
+            corepack prepare pnpm@latest --activate
+      - restore_cache:
+          keys:
+            - pnpm-cache-{{ checksum "pnpm-lock.yaml" }}
+            - pnpm-cache-
+      - run:
+          name: Install dependencies
+          command: pnpm install --frozen-lockfile
+      - save_cache:
+          key: pnpm-cache-{{ checksum "pnpm-lock.yaml" }}
+          paths:
+            - ~/.pnpm-store
+      - run:
+          name: Run linting
+          command: pnpm lint
+      - run:
+          name: Build application
+          command: pnpm build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build_and_test
