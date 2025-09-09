@@ -30,6 +30,10 @@ jobs:
           paths:
             - .pnpm-store
       - run:
+          name: Check lint
+          command: |
+            pnpm ultracite check
+      - run:
           name: Build app
           command: |
             pnpm build
