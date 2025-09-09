@@ -3,6 +3,6 @@
   "extends": ["ultracite"],
   "files": {
     "ignoreUnknown": true,
-    "ignore": [".pnpm-store/**", "node_modules/**", "dist/**"]
+    "includes": ["**", "!**/.pnpm-store", "!**/node_modules", "!**/dist"]
   }
 }
