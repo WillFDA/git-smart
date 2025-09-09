@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Check lint
           command: |
-            pnpm ultracite check
+            pnpm check
       - run:
           name: Build app
           command: |
