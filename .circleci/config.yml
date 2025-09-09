@@ -29,3 +29,8 @@ jobs:
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - .pnpm-store
+      - run:
+          name: Build app
+          command: |
+            pnpm build
+      
