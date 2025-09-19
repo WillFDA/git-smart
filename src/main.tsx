@@ -1,9 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import "./index.css";
 import Layout from "./layout";
-import AccessPage from "./routes/access-page";
+import Access from "./routes/access";
+import { Dashboard } from "./routes/dashboard";
 
 const rootElement = document.getElementById("root");
 
@@ -13,12 +14,13 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<Layout />} path="/">
-          <Route element={<AccessPage />} path="/access" />
+          <Route element={<Access />} path="/access" />
+          <Route element={<Dashboard />} path="/" />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 );
