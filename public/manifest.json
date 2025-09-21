@@ -1,10 +1,20 @@
 {
   "manifest_version": 3,
-  "name": "React Chrome Extension",
+  "name": "Git-smart",
   "version": "1.0.0",
-  "description": "A simple React app as a Chrome extension",
+  "description": "Une extension pour voir tes PR à review ou ouvertes",
   "action": {
-    "default_popup": "index.html"
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "git-192.png",
+      "48": "git-192.png",
+      "128": "git-512.png"
+    }
+  },
+  "icons": {
+    "16": "git-192.png",
+    "48": "git-192.png",
+    "128": "git-512.png"
   },
   "permissions": []
 }
