@@ -11,20 +11,20 @@ import { queryClient } from "./services/api";
 const rootElement = document.getElementById("root");
 
 if (!rootElement) {
-	throw new Error("Root element not found");
+  throw new Error("Root element not found");
 }
 
 createRoot(rootElement).render(
-	<StrictMode>
-		<HashRouter>
-			<QueryClientProvider client={queryClient}>
-				<Routes>
-					<Route element={<Layout />} path="/">
-						<Route element={<Access />} path="/access" />
-						<Route element={<Dashboard />} path="/" />
-					</Route>
-				</Routes>
-			</QueryClientProvider>
-		</HashRouter>
-	</StrictMode>,
+  <StrictMode>
+    <HashRouter>
+      <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route element={<Layout />} path="/">
+            <Route element={<Access />} path="/access" />
+            <Route element={<Dashboard />} path="/" />
+          </Route>
+        </Routes>
+      </QueryClientProvider>
+    </HashRouter>
+  </StrictMode>
 );
