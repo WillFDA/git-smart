@@ -4,5 +4,15 @@
   "files": {
     "ignoreUnknown": true,
     "includes": ["**", "!**/.pnpm-store", "!**/node_modules", "!**/dist"]
+  },
+  "linter": {
+    "rules": {
+      "performance": {
+        "noImgElement": "off"
+      },
+      "style": {
+        "noMagicNumbers": "off"
+      }
+    }
   }
 }
