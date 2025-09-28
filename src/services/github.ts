@@ -30,9 +30,11 @@ export const getUserPullRequests = async (name: string) => {
   return response;
 };
 
-export const useGetUserPullRequests = (name: string) => {
+export const useGetUserPullRequests = () => {
+  const { data: user } = useGetUser();
   return useQuery({
-    queryKey: ["userPullRequests"],
-    queryFn: () => getUserPullRequests(name),
+    queryKey: ["userPullRequests", user?.login],
+    queryFn: () => getUserPullRequests(user?.login || ""),
+    enabled: !!user?.login,
   });
 };

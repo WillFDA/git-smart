@@ -2,7 +2,8 @@ import { useGetUser, useGetUserPullRequests } from "../services/github";
 
 export const Dashboard = () => {
   const { isLoading, data: user } = useGetUser();
-  const { data: userPullRequests } = useGetUserPullRequests("willFDA");
+  const { data: userPullRequests } = useGetUserPullRequests();
+
   return (
     <div>
       <h1>Dashboard</h1>
