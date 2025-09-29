@@ -1,8 +1,8 @@
 import { useGetUser, useGetUserPullRequests } from "../services/github";
 
-export const Dashboard = async () => {
+export const Dashboard = () => {
   const { isLoading, data: user } = useGetUser();
-  const { data: userPullRequests } = await useGetUserPullRequests();
+  const { data: userPullRequests } = useGetUserPullRequests();
 
   return (
     <div>
