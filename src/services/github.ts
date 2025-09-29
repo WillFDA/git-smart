@@ -31,10 +31,11 @@ export const getUserPullRequests = async (name: string) => {
 };
 
 export const useGetUserPullRequests = () => {
-  const { data: user } = useGetUser();
   return useQuery({
-    queryKey: ["userPullRequests", user?.login],
-    queryFn: () => getUserPullRequests(user?.login || ""),
-    enabled: !!user?.login,
+    queryKey: ["userPullRequests"],
+    queryFn: async () => {
+      const { login } = await getUser();
+      return getUserPullRequests(login);
+    },
   });
 };
