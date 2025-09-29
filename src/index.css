@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+/* biome-ignore lint/suspicious/noUnknownAtRules: tailwind config */
+@theme {
+  --color-background: oklch(0.9791 0 0);
+  --color-border: oklch(0.9672 0 0);
+  --color-blank: oklch(0.8853 0 0);
+}

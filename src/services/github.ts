@@ -25,17 +25,12 @@ const getUserIssues = async (username: string) => {
   return response.data;
 };
 
-export const getUserPullRequests = async (name: string) => {
-  const response = await getUserIssues(name);
-  return response;
-};
-
-export const useGetUserPullRequests = () => {
+export const useGetUserIssues = () => {
   return useQuery({
-    queryKey: ["userPullRequests"],
+    queryKey: ["userIssues"],
     queryFn: async () => {
       const { login } = await getUser();
-      return getUserPullRequests(login);
+      return getUserIssues(login);
     },
   });
 };

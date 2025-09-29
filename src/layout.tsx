@@ -1,8 +1,10 @@
 import { Outlet } from "react-router";
+import { Header } from "./components/header";
 
 export default function Layout() {
   return (
-    <main className="h-[300px] max-h-[300px] min-w-2xl max-w-2xl rounded-lg bg-zinc-50 p-4 shadow-md">
+    <main className="flex h-[432px] max-h-[432px] min-w-[692px] max-w-[692px] flex-col gap-4 rounded-2xl bg-background p-4 shadow-md">
+      <Header />
       <Outlet />
     </main>
   );
