@@ -3,7 +3,7 @@ import { useGetUser, useGetUserIssues } from "../services/github";
 export const Header = () => {
   const { data: user, isLoading: isUserLoading } = useGetUser();
   const { data: issues, isLoading: isPullRequestLoading } = useGetUserIssues();
-  const connected = !!issues;
+  const connected = true;
   if (connected) {
     return (
       <header className="flex items-center gap-3">
